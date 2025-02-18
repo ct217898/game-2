@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpug8noeknfvs"
-path.s3tc="res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_0.png-86b6710264721666d6cf1b96f5015106.s3tc.ctex"
+uid="uid://cqufxrk876x8w"
+path.s3tc="res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_8.png-95f47e4b096917c58d8cc76b09aa74f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "be8d3bc5659cd79f8e17267fe25ef027"
+"md5": "dda50d5a25f1c5c06333b9dec01d7cfc"
 }
 
 [deps]
 
-source_file="res://assets/textures/engadine_mcdonalds_restaurant_low_poly_0.png"
-dest_files=["res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_0.png-86b6710264721666d6cf1b96f5015106.s3tc.ctex"]
+source_file="res://assets/engadine_mcdonalds_restaurant_low_poly_8.png"
+dest_files=["res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_8.png-95f47e4b096917c58d8cc76b09aa74f0.s3tc.ctex"]
 
 [params]
 

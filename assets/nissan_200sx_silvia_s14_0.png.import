@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gq4l18ov410l"
-path.s3tc="res://.godot/imported/realistic_chicago_buildings_0.jpg-1d4e970b1abebb299aa4a62fa357d249.s3tc.ctex"
+uid="uid://bv41ar7eur86o"
+path.s3tc="res://.godot/imported/nissan_200sx_silvia_s14_0.png-2de97c28c552ca592128fc93f0b91ecb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "8b1d916b6bb2a0c29c418d8eab9efb8e"
+"md5": "2012d0a475f8f57ef07f3be76b673d83"
 }
 
 [deps]
 
-source_file="res://assets/textures/realistic_chicago_buildings_0.jpg"
-dest_files=["res://.godot/imported/realistic_chicago_buildings_0.jpg-1d4e970b1abebb299aa4a62fa357d249.s3tc.ctex"]
+source_file="res://assets/nissan_200sx_silvia_s14_0.png"
+dest_files=["res://.godot/imported/nissan_200sx_silvia_s14_0.png-2de97c28c552ca592128fc93f0b91ecb.s3tc.ctex"]
 
 [params]
 

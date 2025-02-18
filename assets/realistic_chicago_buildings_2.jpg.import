@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmudcn5i1tgfr"
-path.s3tc="res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_6.png-00c541fe9af743dd3446d1b6ec7c44d7.s3tc.ctex"
+uid="uid://df3oag1cj1vwp"
+path.s3tc="res://.godot/imported/realistic_chicago_buildings_2.jpg-817cc94313c27ee2d6d619b2dc8002ff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "90df28f26000bc4028f0ce23758ee58f"
+"md5": "dd6cf52de64489ed24cff6e1bd919c21"
 }
 
 [deps]
 
-source_file="res://assets/textures/engadine_mcdonalds_restaurant_low_poly_6.png"
-dest_files=["res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_6.png-00c541fe9af743dd3446d1b6ec7c44d7.s3tc.ctex"]
+source_file="res://assets/realistic_chicago_buildings_2.jpg"
+dest_files=["res://.godot/imported/realistic_chicago_buildings_2.jpg-817cc94313c27ee2d6d619b2dc8002ff.s3tc.ctex"]
 
 [params]
 

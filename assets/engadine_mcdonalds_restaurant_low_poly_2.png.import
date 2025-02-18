@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2awoeshrxip1"
-path.s3tc="res://.godot/imported/modular_kit_city_development_2.png-0caceff61d47f29890cf92a0a6462d02.s3tc.ctex"
+uid="uid://dal4qjtpmevc4"
+path.s3tc="res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_2.png-8fda7613dcd850cf5098e0fd65aeaa05.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5e1bc91f4bf80f8ecc9d23f961055e05"
+"md5": "09e58fd55baaebd6ab62905739027a06"
 }
 
 [deps]
 
-source_file="res://assets/textures/modular_kit_city_development_2.png"
-dest_files=["res://.godot/imported/modular_kit_city_development_2.png-0caceff61d47f29890cf92a0a6462d02.s3tc.ctex"]
+source_file="res://assets/engadine_mcdonalds_restaurant_low_poly_2.png"
+dest_files=["res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_2.png-8fda7613dcd850cf5098e0fd65aeaa05.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://assets/modular_kit_city_development_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cck64xge3n8be"
-path.s3tc="res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_9.png-2947887334e1e59a46c57bea99093731.s3tc.ctex"
+uid="uid://gq4l18ov410l"
+path.s3tc="res://.godot/imported/realistic_chicago_buildings_0.jpg-b342ffb9ff5fd35118bae20a577fe395.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "95dd2ad57db8bcf0dbe6c8a49ba27a64"
+"md5": "8b1d916b6bb2a0c29c418d8eab9efb8e"
 }
 
 [deps]
 
-source_file="res://assets/textures/engadine_mcdonalds_restaurant_low_poly_9.png"
-dest_files=["res://.godot/imported/engadine_mcdonalds_restaurant_low_poly_9.png-2947887334e1e59a46c57bea99093731.s3tc.ctex"]
+source_file="res://assets/realistic_chicago_buildings_0.jpg"
+dest_files=["res://.godot/imported/realistic_chicago_buildings_0.jpg-b342ffb9ff5fd35118bae20a577fe395.s3tc.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://assets/engadine_mcdonalds_restaurant_low_poly_9.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

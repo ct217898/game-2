@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cca1gpwv8spxq"
+uid="uid://c2awoeshrxip1"
 path.s3tc="res://.godot/imported/modular_kit_city_development_2.png-f9e8680b71b7194a8cc1751bbbb49652.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "5e1bc91f4bf80f8ecc9d23f961055e05"
 }
 
 [deps]

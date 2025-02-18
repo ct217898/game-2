@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df3oag1cj1vwp"
-path.s3tc="res://.godot/imported/realistic_chicago_buildings_2.jpg-c62123124bf9c329ea5378cef826ea41.s3tc.ctex"
+uid="uid://by7cw5xnrl7lq"
+path.s3tc="res://.godot/imported/realistic_chicago_buildings_5.png-0b0c15b922f3bb483d02a96d04174242.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "dd6cf52de64489ed24cff6e1bd919c21"
+"md5": "fb9216e6c00ac22d197f7a26f5acd039"
 }
 
 [deps]
 
-source_file="res://assets/textures/realistic_chicago_buildings_2.jpg"
-dest_files=["res://.godot/imported/realistic_chicago_buildings_2.jpg-c62123124bf9c329ea5378cef826ea41.s3tc.ctex"]
+source_file="res://assets/realistic_chicago_buildings_5.png"
+dest_files=["res://.godot/imported/realistic_chicago_buildings_5.png-0b0c15b922f3bb483d02a96d04174242.s3tc.ctex"]
 
 [params]
 

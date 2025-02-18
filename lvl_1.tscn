@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://qqwqctjwkbif"]
+
+[ext_resource type="PackedScene" uid="uid://dwpkhac5b8y8j" path="res://player/player.tscn" id="1_saeol"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_3cd8r"]
+[ext_resource type="PackedScene" uid="uid://bg4hpofhgug1t" path="res://assets/nyc_bronx_buildings.glb" id="3_2vdvy"]
+[ext_resource type="PackedScene" uid="uid://ctnaibjimvd7g" path="res://assets/engadine_mcdonalds_restaurant_low_poly.glb" id="4_m0e1y"]
+[ext_resource type="PackedScene" uid="uid://c4u5he820v2dp" path="res://assets/modular_kit_city_development.glb" id="5_kt8td"]
+[ext_resource type="PackedScene" uid="uid://dmfm6nv32np76" path="res://assets/realistic_chicago_buildings.glb" id="6_gdbyp"]
+[ext_resource type="PackedScene" uid="uid://mfne73n5ethr" path="res://assets/road_free.glb" id="7_m5upa"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ynkdd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jege7"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h25m"]
+albedo_color = Color(0.354405, 0.162211, 0.295866, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f7cti"]
+
+[sub_resource type="Sky" id="Sky_fjo45"]
+sky_material = SubResource("ProceduralSkyMaterial_f7cti")
+
+[sub_resource type="Environment" id="Environment_opbsp"]
+background_mode = 2
+sky = SubResource("Sky_fjo45")
+
+[node name="lvl 1" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_ynkdd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_jege7")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_7h25m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_opbsp")
+
+[node name="Player" parent="." instance=ExtResource("1_saeol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776102, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.7761, 3)
+script = ExtResource("2_3cd8r")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_2vdvy")]
+transform = Transform3D(-0.048013, 0, 0.998847, 0, 1, 0, -0.998847, 0, -0.048013, -22.9673, -4.29259, -6.03754)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_m0e1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.132, 0, -138)
+
+[node name="RoadA1" parent="." instance=ExtResource("5_kt8td")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.1405, 3.8147e-06, -38.8191)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("6_gdbyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.022, 0, -23.1449)
+
+[node name="RoadA2" parent="." instance=ExtResource("7_m5upa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9878, 0, -58.7297)

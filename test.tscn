@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://l78j2oegblep"]
+
+[ext_resource type="Script" path="res://camera_3d.gd" id="1_kiuc7"]
+[ext_resource type="PackedScene" uid="uid://dwpkhac5b8y8j" path="res://player/player.tscn" id="1_n5nmd"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1s2bo"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qiffi"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0twbf"]
+albedo_color = Color(0.352941, 0.2, 0.290196, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vdkwn"]
+
+[sub_resource type="Sky" id="Sky_7g7xy"]
+sky_material = SubResource("ProceduralSkyMaterial_vdkwn")
+
+[sub_resource type="Environment" id="Environment_qnqsw"]
+background_mode = 2
+sky = SubResource("Sky_7g7xy")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pmjyk"]
+
+[node name="test" type="Node3D"]
+
+[node name="test floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test floor"]
+shape = SubResource("WorldBoundaryShape3D_1s2bo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test floor"]
+mesh = SubResource("PlaneMesh_qiffi")
+surface_material_override/0 = SubResource("StandardMaterial3D_0twbf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 3)
+script = ExtResource("1_kiuc7")
+
+[node name="Player" parent="." instance=ExtResource("1_n5nmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.623131, 1.01888, 0.298962)
+accel_rate = 3.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qnqsw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, -11)
+mesh = SubResource("CylinderMesh_pmjyk")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dlw27dsxbnf1d"]
+
+[ext_resource type="PackedScene" uid="uid://bg4hpofhgug1t" path="res://assets/nyc_bronx_buildings.glb" id="1_8aimx"]
+[ext_resource type="Script" path="res://buildings/building_resource.gd" id="2_7tb2r"]
+
+[resource]
+script = ExtResource("2_7tb2r")
+mesh = ExtResource("1_8aimx")
+width = 0.0
+length = 0.0

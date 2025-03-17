@@ -1,0 +1,282 @@
+[gd_scene load_steps=30 format=4 uid="uid://qqwqctjwkbif"]
+
+[ext_resource type="Script" path="res://building_fog.gd" id="1_guk3o"]
+[ext_resource type="Texture2D" uid="uid://cwxn11tk33e1o" path="res://assets/textures/grass.jpg" id="1_ih1td"]
+[ext_resource type="PackedScene" uid="uid://dwpkhac5b8y8j" path="res://player/player.tscn" id="1_saeol"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_3cd8r"]
+[ext_resource type="PackedScene" uid="uid://bg4hpofhgug1t" path="res://assets/nyc_bronx_buildings.glb" id="3_2vdvy"]
+[ext_resource type="Texture2D" uid="uid://bav8o3mi8yxaq" path="res://assets/modular_set_template_3.jpg" id="3_ynbps"]
+[ext_resource type="PackedScene" uid="uid://ctnaibjimvd7g" path="res://assets/engadine_mcdonalds_restaurant_low_poly.glb" id="4_m0e1y"]
+[ext_resource type="Texture2D" uid="uid://buh530xoth281" path="res://assets/modular_set_template_4.png" id="4_y7ne8"]
+[ext_resource type="Texture2D" uid="uid://b8wmxek5kqwj0" path="res://assets/modular_set_template_5.jpg" id="5_hj88s"]
+[ext_resource type="Texture2D" uid="uid://d62dhn5lsunk" path="res://assets/road_free_0.jpg" id="6_f2ded"]
+[ext_resource type="PackedScene" uid="uid://dmfm6nv32np76" path="res://assets/realistic_chicago_buildings.glb" id="6_gdbyp"]
+[ext_resource type="Texture2D" uid="uid://bn2fv70mec4dc" path="res://assets/road_free_1.png" id="7_j37m0"]
+[ext_resource type="PackedScene" uid="uid://3feqpmyv84ho" path="res://buildings/building_spawner.tscn" id="13_r530g"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ynkdd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jege7"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7h25m"]
+albedo_color = Color(0.127609, 0.270012, 0.102234, 1)
+albedo_texture = ExtResource("1_ih1td")
+albedo_texture_msdf = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f7cti"]
+
+[sub_resource type="Sky" id="Sky_fjo45"]
+sky_material = SubResource("ProceduralSkyMaterial_f7cti")
+
+[sub_resource type="Environment" id="Environment_opbsp"]
+background_mode = 2
+sky = SubResource("Sky_fjo45")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sub3x"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_3cih3"]
+noise = SubResource("FastNoiseLite_sub3x")
+
+[sub_resource type="FogMaterial" id="FogMaterial_rx4er"]
+height_falloff = 0.447623
+density_texture = SubResource("NoiseTexture3D_3cih3")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_msdql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfmf5"]
+resource_name = "Concrete"
+cull_mode = 2
+albedo_texture = ExtResource("3_ynbps")
+metallic_texture = ExtResource("4_y7ne8")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_y7ne8")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_hj88s")
+ao_enabled = true
+ao_texture = ExtResource("4_y7ne8")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lr2on"]
+_surfaces = [{
+"aabb": AABB(-2, -0.4, -1.78814e-07, 2, 0.4, 2),
+"format": 34896670721,
+"index_count": 54,
+"index_data": PackedByteArray("DQAAAAoADAAAAA0AAwAPAAUAAwAOAA8AAQAJAAUAAQAHAAkACAAFAAkACAADAAUABwAGAAkABwACAAYADgANAA8ADgAMAA0ADwAKAAsADwANAAoABQALAAEABQAPAAsABAAJAAYABAAIAAkA"),
+"name": "Concrete",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/////wAAAAD//////v8AAP//AAD+/wAAAAD//wAAAAAAAAAAAAAAAAAA/////wAAAAAAAP//AAD///9//v8AAAAA/38AAAAAAAD/f///AAD+/////38AAP////+Y2QAA/3///wAAAAD/f////38AAGYm//8AAAAAZib//5jZAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tehcq"]
+resource_name = "Sketchfab_Scene_Object_20"
+_surfaces = [{
+"aabb": AABB(-2, -0.4, -1.78814e-07, 2, 0.4, 2),
+"attribute_data": PackedByteArray("/v9kr/7/ZK8IVM4/ONaYPwhUzj841pg/wV5kr8FeZK8EWta+ONaYPwRa1r441pg/wV7QQMFe0EAOWta+wMDLvw5a1r7AwMu/gT7QQIE+0EBxJFO/wMDLv3EkU7/AwMu/wV4E4sFeBOIIWta+LgoeQAha1r4uCh5A/v////7///8IVM4/YGBOQAhUzj9gYE5AgT4E4oE+BOJvJFO/LgoeQG8kU78uCh5AwV5qkcFeapEKWta+NqfgPgpa1r42p+A+wV7//8Fe//8OWta+YGBOQA5a1r5gYE5AwV5qkcFeapEKWta+NqfgPgpa1r42p+A+gT5qkYE+apFvJFO/NqfgPm8kU782p+A+gT5qkYE+apFvJFO/NqfgPm8kU782p+A+oU7QQKFO0EC9KB+/wMDLv70oH7/AwMu/oU4E4qFOBOK7KB+/LgoeQLsoH78uCh5AoU5qkaFOapG7KB+/NqfgPrsoH782p+A+oU5qkaFOapG7KB+/NqfgPrsoH782p+A+YK9kr2CvZK+HvRg/ONaYP4e9GD841pg/8HZkr/B2ZK+gm+m9ONaYP6Cb6b041pg//v+x1/7/sdcIVM4/vmUNQAhUzj++ZQ1AYK+x12CvsdeHvRg/vGUNQIe9GD+8ZQ1A///n8///5/MKVM4//OE6QApUzj/84TpA8Hbn8/B25/Ogm+m9/OE6QKCb6b384TpA"),
+"format": 34896670839,
+"index_count": 54,
+"index_data": PackedByteArray("EwAAABAAEgAAABMABQAVAAgABQAUABUAAgAPAAkAAgAMAA8ADQAHAA4ADQAEAAcADAALAA8ADAADAAsAFAATABUAFAASABMAFQAQABEAFQATABAACAARAAEACAAVABEABgAOAAoABgANAA4A"),
+"material": SubResource("StandardMaterial3D_mfmf5"),
+"name": "Concrete",
+"primitive": 3,
+"uv_scale": Vector4(3.22388, 6.44926, 3.22388, 6.44926),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("/////wAAVNX//////v9U1f/////+//+///8AAP7//78AAP//AABU1QAA//8AAFTVAAAAAAAAVNUAAP////9U1QAA/////1TVAAD//////78AAAAA//9U1QAAAAD///+/////f/7//78AAP9/AABU1QAA/3///1TVAAD/f////7/+/////39U1f////+Y2VTV/3///wAAVNX/f////39U1WYm//8AAFTVZib//5jZVNVU1aoqVNWqKgAAAAAAAAAAVNVU1VTVqipU1VTVVNVU1VTVqioAAAAAVNVU1QAAAAAAAAAAVNVU1VTVVNUAAAAAVNWqKlTVqipU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lr2on")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxbgw"]
+resource_name = "Scene_-_Root"
+cull_mode = 2
+albedo_texture = ExtResource("6_f2ded")
+normal_enabled = true
+normal_texture = ExtResource("7_j37m0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iqwmn"]
+_surfaces = [{
+"aabb": AABB(-9.05152, -9.42972, -0.0119642, 17.9492, 8.97998, 0.157359),
+"format": 34896613377,
+"index_count": 216,
+"index_data": PackedByteArray("AAACAAEAAAADAAIABAAGAAUABAAHAAYAAgAHAAEAAgAGAAcAAAAFAAMAAAAEAAUAAwAGAAIAAwAFAAYAAQAEAAAAAQAHAAQAAwAIAAIAAwAJAAgABQALAAoABQAGAAsACAAGAAIACAALAAYAAwAKAAkAAwAFAAoACQALAAgACQAKAAsAAgAFAAMAAgAGAAUACQAMAAgACQANAAwACgAPAA4ACgALAA8ADAALAAgADAAPAAsACQAOAA0ACQAKAA4ADQAPAAwADQAOAA8ACAAKAAkACAALAAoAEAADAAAAEAARAAMAEgAFABMAEgAEAAUAAwAEAAAAAwAFAAQAEAATABEAEAASABMAEQAFAAMAEQATAAUAAAASABAAAAAEABIAEQAJAAMAEQAUAAkAEwAKABUAEwAFAAoACQAFAAMACQAKAAUAEQAVABQAEQATABUAFAAKAAkAFAAVAAoAAwATABEAAwAFABMAFAANAAkAFAAWAA0AFQAOABcAFQAKAA4ADQAKAAkADQAOAAoAFAAXABYAFAAVABcAFgAOAA0AFgAXAA4ACQAVABQACQAKABUA"),
+"name": "Scene_-_Root",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD/fwAAAAAAAP//AAAAAFRV//8AAAAAVFX/fwAAAAAAAP9///8AAFRV/3///wAAVFX/////AAAAAP////8AAKqq//8AAAAAqqr/fwAAAACqqv9///8AAKqq/////wAA/////wAAAAD///9/AAAAAP///3///wAA////////AAAAAAAAAAAAAFRVAAAAAAAAAAAAAP//AABUVQAA//8AAKqqAAAAAAAAqqoAAP//AAD//wAAAAAAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bebh6"]
+resource_name = "Sketchfab_Scene_Plane_002__0"
+_surfaces = [{
+"aabb": AABB(-9.05152, -9.42972, -0.0119642, 17.9492, 8.97998, 0.157359),
+"attribute_data": PackedByteArray("GDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsdGDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsdGDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsdGDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsdGDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsdGDjdxxg4ITi/xyE4v8fdxwYABgDR/wYA0f/4/wYA+P8Uel7jFHpIH/J9SB/yfV7jyYyDIMiMK9ofiSvaH4mDIMR2cx7Edkbmg3FG5oNxcx4VJhsdFSYf4+EgH+PhIBsd"),
+"format": 34896613399,
+"index_count": 216,
+"index_data": PackedByteArray("AAACAAEAAAADAAIABAAGAAUABAAHAAYACAAKAAkACAALAAoADAAOAA0ADAAPAA4AEAASABEAEAATABIAFAAWABUAFAAXABYAGAAaABkAGAAbABoAHAAeAB0AHAAfAB4AIAAiACEAIAAjACIAJAAmACUAJAAnACYAKAAqACkAKAArACoALAAuAC0ALAAvAC4AMAAyADEAMAAzADIANAA2ADUANAA3ADYAOAA6ADkAOAA7ADoAPAA+AD0APAA/AD4AQABCAEEAQABDAEIARABGAEUARABHAEYASABKAEkASABLAEoATABOAE0ATABPAE4AUABSAFEAUABTAFIAVABWAFUAVABXAFYAWABaAFkAWABbAFoAXABeAF0AXABfAF4AYABiAGEAYABjAGIAZABmAGUAZABnAGYAaABqAGkAaABrAGoAbABuAG0AbABvAG4AcAByAHEAcABzAHIAdAB2AHUAdAB3AHYAeAB6AHkAeAB7AHoAfAB+AH0AfAB/AH4AgACCAIEAgACDAIIAhACGAIUAhACHAIYAiACKAIkAiACLAIoAjACOAI0AjACPAI4A"),
+"material": SubResource("StandardMaterial3D_rxbgw"),
+"name": "Scene_-_Root",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 144,
+"vertex_data": PackedByteArray("AAD/fwAA//8AAP//AAD//1RV//8AAP//VFX/fwAA//8AAP9///8AgFRV/3///wCAVFX/////AIAAAP////8AgFRV//8AAFTVAAD//wAAVNUAAP////9U1VRV/////1TVAAD/fwAAVNVUVf9/AABU1VRV/3///1TVAAD/f///VNVUVf9/AAD/v1RV//8AAP+/VFX//////79UVf9/////vwAA//8AAP//AAD/fwAA//8AAP9//////wAA////////VFX/fwAA//9UVf//AAD//6qq//8AAP//qqr/fwAA//9UVf9///8AgKqq/3///wCAqqr/////AIBUVf////8AgKqq//8AAFTVVFX//wAAVNVUVf////9U1aqq/////1TVVFX/fwAAVNWqqv9/AABU1aqq/3///1TVVFX/f///VNWqqv9/AAD/v6qq//8AAP+/qqr//////7+qqv9/////v1RV//8AAP//VFX/fwAA//9UVf9//////1RV////////qqr/fwAA//+qqv//AAD///////8AAP//////fwAA//+qqv9///8AgP///3///wCA////////AICqqv////8AgP////8AAFTVqqr//wAAVNWqqv////9U1f///////1TVqqr/fwAAVNX///9/AABU1f///3///1TVqqr/f///VNX///9/AAD/v/////8AAP+//////////7////9/////v6qq//8AAP//qqr/fwAA//+qqv9//////6qq////////AAAAAAAA//8AAP9/AAD//1RV/38AAP//VFUAAAAA//8AAAAA//8AgFRVAAD//wCAVFX/f///AIAAAP9///8AgFRV/38AAFTVAAD/fwAAVNUAAP9///9U1VRV/3///1TVAAAAAAAAVNVUVQAAAABU1VRVAAD//1TVAAAAAP//VNVUVQAAAAD/v1RV/38AAP+/VFX/f////79UVQAA////vwAA/38AAP//AAAAAAAA//8AAAAA/////wAA/3//////VFUAAAAA//9UVf9/AAD//6qq/38AAP//qqoAAAAA//9UVQAA//8AgKqqAAD//wCAqqr/f///AIBUVf9///8AgKqq/38AAFTVVFX/fwAAVNVUVf9///9U1aqq/3///1TVVFUAAAAAVNWqqgAAAABU1aqqAAD//1TVVFUAAP//VNWqqgAAAAD/v6qq/38AAP+/qqr/f////7+qqgAA////v1RV/38AAP//VFUAAAAA//9UVQAA/////1RV/3//////qqoAAAAA//+qqv9/AAD//////38AAP////8AAAAA//+qqgAA//8AgP//AAD//wCA////f///AICqqv9///8AgP///38AAFTVqqr/fwAAVNWqqv9///9U1f///3///1TVqqoAAAAAVNX//wAAAABU1f//AAD//1TVqqoAAP//VNX//wAAAAD/v////38AAP+/////f////7///wAA////v6qq/38AAP//qqoAAAAA//+qqgAA/////6qq/3//////////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/////f////3////9/////f/9/////f////3////9///+qqqqqqqqqqqqqqqqqqqqqVVVUVVRVVFVVVVRVVVVUVf9/AAD/fwAA/38AAP9/AAD/P/9//z//f/8//3//P/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iqwmn")
+
+[node name="lvl 1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_ynkdd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_jege7")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_7h25m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_opbsp")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.014, 9.511, -44)
+size = Vector3(62.668, 21.0445, 42.0472)
+material = SubResource("FogMaterial_rx4er")
+script = ExtResource("1_guk3o")
+
+[node name="Player" parent="." instance=ExtResource("1_saeol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0117074, 0)
+accel_rate = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.83306, 4.77601)
+attributes = SubResource("CameraAttributesPractical_msdql")
+script = ExtResource("2_3cd8r")
+
+[node name="SideWalk" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.20345e-07, 0, 1.05234, 0, 1.02468, 0, -5.04092, 0, -4.59994e-08, -8.61253, 0.0192544, -2.38445)
+mesh = SubResource("ArrayMesh_tehcq")
+skeleton = NodePath("")
+
+[node name="bronxdeli" parent="." instance=ExtResource("3_2vdvy")]
+transform = Transform3D(-6.5567e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.5567e-09, -8.62648, -0.623803, 2.78896)
+
+[node name="mcd" parent="." instance=ExtResource("4_m0e1y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.8412, 0.0708508, -8.21923)
+
+[node name="foundstore" parent="." instance=ExtResource("6_gdbyp")]
+transform = Transform3D(-6.55673e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.55673e-09, 8.90114, -1.69642, -15.0129)
+
+[node name="road" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.493651, 0)
+
+[node name="Sketchfab_model" type="Node3D" parent="road"]
+transform = Transform3D(0.00700531, 0, 0, 0, 1.55549e-18, 0.00700531, 0, -0.00700531, 1.55549e-18, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="4b74769ab7c143c2b8616e89c0d44673_fbx" type="Node3D" parent="road/Sketchfab_model"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="RootNode" type="Node3D" parent="road/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2494.32, 0, 0)
+
+[node name="Plane_002" type="Node3D" parent="road/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -2.36572, -1.26144, 3.36582)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_002"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -24.85, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="Node3D" parent="road/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, 0, 0, 0)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_003"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -15.8839, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="road2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282193, -0.493651, -12.5661)
+
+[node name="Sketchfab_model" type="Node3D" parent="road2"]
+transform = Transform3D(0.00700531, 0, 0, 0, 1.55549e-18, 0.00700531, 0, -0.00700531, 1.55549e-18, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="4b74769ab7c143c2b8616e89c0d44673_fbx" type="Node3D" parent="road2/Sketchfab_model"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="RootNode" type="Node3D" parent="road2/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2494.32, 0, 0)
+
+[node name="Plane_002" type="Node3D" parent="road2/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -2.36572, -1.26144, 3.36582)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road2/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_002"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -24.85, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="Node3D" parent="road2/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, 0, 0, 0)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road2/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_003"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -15.8839, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="road3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0558778, -0.493651, -25.11)
+
+[node name="Sketchfab_model" type="Node3D" parent="road3"]
+transform = Transform3D(0.00700531, 0, 0, 0, 1.55549e-18, 0.00700531, 0, -0.00700531, 1.55549e-18, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="4b74769ab7c143c2b8616e89c0d44673_fbx" type="Node3D" parent="road3/Sketchfab_model"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="RootNode" type="Node3D" parent="road3/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2494.32, 0, 0)
+
+[node name="Plane_002" type="Node3D" parent="road3/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, -2.36572, -1.26144, 3.36582)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road3/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_002"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -24.85, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="Plane_003" type="Node3D" parent="road3/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode"]
+transform = Transform3D(100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, 0, 0, 0)
+
+[node name="Plane_002__0" type="MeshInstance3D" parent="road3/Sketchfab_model/4b74769ab7c143c2b8616e89c0d44673_fbx/RootNode/Plane_003"]
+transform = Transform3D(-0.00181515, 0.999998, 1.6292e-07, -0.999998, -0.00181515, -1.63216e-07, -1.6292e-07, -1.63216e-07, 1, -15.8839, -2.14713, 0.578961)
+mesh = SubResource("ArrayMesh_bebh6")
+skeleton = NodePath("")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1159, 0, 7.7287)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31474, 0, -2.86726)
+
+[node name="BuildingSpawner" parent="." node_paths=PackedStringArray("building_container") instance=ExtResource("13_r530g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.04265, -0.0117074, -64.534)
+building_container = NodePath("../Buiilding_container")
+
+[node name="Buiilding_container" type="Node3D" parent="."]

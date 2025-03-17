@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cet6sh1adgqqw"]
+
+[ext_resource type="PackedScene" uid="uid://ctnaibjimvd7g" path="res://assets/engadine_mcdonalds_restaurant_low_poly.glb" id="1_s0eql"]
+[ext_resource type="Script" path="res://buildings/building_resource.gd" id="2_2u8xd"]
+
+[resource]
+script = ExtResource("2_2u8xd")
+mesh = ExtResource("1_s0eql")
+width = 23.701
+length = 30.739

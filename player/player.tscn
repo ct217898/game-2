@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwpkhac5b8y8j"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_hh1st"]
+[ext_resource type="PackedScene" uid="uid://by1fw4nx4fufs" path="res://assets/nissan_200sx_silvia_s14.glb" id="2_w7k0b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bgh6"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_hh1st")
+accel_rate = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518391, 0)
+shape = SubResource("BoxShape3D_3bgh6")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_w7k0b")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.636, -0.471, 0.694)

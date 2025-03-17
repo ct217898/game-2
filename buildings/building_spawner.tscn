@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://3feqpmyv84ho"]
+
+[ext_resource type="Script" path="res://buildings/building_spawner.gd" id="1_bgl7b"]
+[ext_resource type="Resource" uid="uid://cet6sh1adgqqw" path="res://buildings/mcdonalds.tres" id="2_8iifx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kb0lp"]
+height = 20.0
+
+[node name="BuildingSpawner" type="Node3D"]
+script = ExtResource("1_bgl7b")
+buildings = [ExtResource("2_8iifx")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3626, 0)
+mesh = SubResource("CylinderMesh_kb0lp")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

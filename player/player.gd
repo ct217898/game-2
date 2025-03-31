@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 8.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 6.0
 
 var accel = 0
 @export var accel_rate = 1.0

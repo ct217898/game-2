@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://qqwqctjwkbif"]
+[gd_scene load_steps=50 format=4 uid="uid://qqwqctjwkbif"]
 
 [ext_resource type="Script" path="res://building_fog.gd" id="1_guk3o"]
 [ext_resource type="Texture2D" uid="uid://cwxn11tk33e1o" path="res://assets/textures/grass.jpg" id="1_ih1td"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bimu0rtuphj17" path="res://assets/modular_set_template_7.png" id="18_pk8sg"]
 [ext_resource type="Texture2D" uid="uid://m8lc1h0pn3dm" path="res://assets/modular_set_template_8.jpg" id="19_ysvtx"]
 [ext_resource type="Texture2D" uid="uid://mdi5hck1yglb" path="res://assets/modular_set_template_9.png" id="20_b4cq4"]
+[ext_resource type="Script" path="res://node_3d.gd" id="21_ymhf2"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ynkdd"]
 
@@ -482,3 +483,8 @@ skeleton = NodePath("")
 [node name="Object_56" type="MeshInstance3D" parent="Door_001_005_20"]
 mesh = SubResource("ArrayMesh_q8jn4")
 skeleton = NodePath("")
+
+[node name="HUD" type="Node3D" parent="."]
+script = ExtResource("21_ymhf2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="HUD"]

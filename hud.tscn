@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd3qbj85pf1if"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_3djei"]
+
+[node name="HUD" type="Node3D"]
+script = ExtResource("1_3djei")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 401.0
+offset_top = 606.0
+offset_right = 730.0
+offset_bottom = 633.0
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0

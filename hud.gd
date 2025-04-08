@@ -4,7 +4,7 @@ extends Node3D
 @onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
 @onready var score_label : Label = $CanvasLayer/ScoreLabel
 
-var health : float = 100
+var health : float = 60
 var score : int = 0
 
 func _ready():
@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if health > 0:
 		health -= 0.1 * delta  # Decrease health over time (for demo purposes)
 	health_bar.value = health
+	#health needs to be able to go from 100 to 0
 	
 	# Example logic: Score increases over time
 	score += int(1 * delta)
